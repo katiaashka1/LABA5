@@ -65,7 +65,7 @@ TEST(stack2, push_emplace)
     stack.push_emplace(15, 30.5);
     stack.push_emplace(7, 9.2);
 
-    auto pair = std::make_pair(7, 9.2);
+    auto pair = std::pair(7, 9.2);
     EXPECT_EQ(stack.head(), pair);
 }
 
@@ -77,11 +77,11 @@ TEST(stack2, pop)
     stack.push_emplace(67, 8.69);
     stack.push_emplace(3, 4.02);
 
-    auto pair = std::make_pair(3, 4.02);
+    auto pair = std::pair(3, 4.02);
     EXPECT_EQ(stack.head(), pair);
 
 
-    auto pair2 = std::make_pair(3, 4.02);
+    auto pair2 = std::pair(3, 4.02);
     EXPECT_EQ(stack.pop(), pair2);
 }
 
