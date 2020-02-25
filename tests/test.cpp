@@ -1,7 +1,7 @@
 // Copyright 2020 <telsamar>
 #include <gtest/gtest.h>
 #include "Stack1.h"
-#include "Stack2.h"
+#include "Stackpushemplace.h"
 
 const int a = 7;
 const int b = 15;
@@ -58,9 +58,8 @@ TEST(stack1, second_push)
 
 
 
-TEST(stack2, push_emplace)
-{
-    Stack2 < std::pair <int, double>> stack{};
+TEST(stackpushemplace, push_emplace) {
+  Stackpushemplace<std::pair<int, double>> stack{};
 
     stack.push_emplace(15, 30.5);
     stack.push_emplace(7, 9.2);
@@ -72,7 +71,7 @@ TEST(stack2, push_emplace)
 
 TEST(stack2, pop)
 {
-    Stack2 < std::pair <int, double>> stack{};
+  Stackpushemplace<std::pair<int, double>> stack{};
 
     stack.push_emplace(67, 8.69);
     stack.push_emplace(3, 4.02);
@@ -85,9 +84,8 @@ TEST(stack2, pop)
     EXPECT_EQ(stack.pop(), pair2);
 }
 
-TEST(stack2, push)
-{
-    Stack2 <double> stack;
+TEST(stackpushemplace, push) {
+  Stackpushemplace<double> stack;
 
     stack.push(2.1);
     stack.push(6.6);
@@ -95,35 +93,23 @@ TEST(stack2, push)
     EXPECT_EQ(stack.head(), 6.6);
 }
 
-TEST(stack2, except)
-{
-    Stack2 <int> stack;
+TEST(stackpushemplace, except) {
+  Stackpushemplace<int> stack;
 
     EXPECT_THROW(stack.pop(), std::logic_error);
 }
 
-TEST(stack2, excepthead)
-{
-    Stack2 <int> stack;
+TEST(stackpushemplace, excepthead) {
+  Stackpushemplace<int> stack;
 
     EXPECT_THROW(stack.head(), std::logic_error);
 }
 
-//
-//TEST(stak12, testcopy)
-//{
-//    EXPECT_EQ(std::is_copy_constructible_v<Stack1<int>>, false);
-//    EXPECT_EQ(std::is_copy_constructible_v<Stack2<int>>, false);
-//
-//    EXPECT_EQ(std::is_copy_assignable_v<Stack1<int>>, false);
-//    EXPECT_EQ(std::is_copy_assignable_v<Stack2<int>>, false);
-//}
 
-TEST(stak12, testmove)
-{
+TEST(stak1pushemplace, testmove) {
     EXPECT_EQ(std::is_move_constructible_v<Stack1<int>>, true);
-    EXPECT_EQ(std::is_move_constructible_v<Stack2<int>>, true);
+  EXPECT_EQ(std::is_move_constructible_v<Stackpushemplace<int>>, true);
 
     EXPECT_EQ(std::is_move_assignable_v<Stack1<int>>, true);
-    EXPECT_EQ(std::is_move_assignable_v<Stack2<int>>, true);
+  EXPECT_EQ(std::is_move_assignable_v<Stackpushemplace<int>>, true);
 }
